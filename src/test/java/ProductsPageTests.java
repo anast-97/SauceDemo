@@ -17,8 +17,9 @@ public class ProductsPageTests extends BaseTest{
     public void addToCartTest(){
         loginPage.openLoginPage();
         loginPage.login("standard_user", "secret_sauce");
-        productsPage.clickToAddButton("Sauce Labs Onesie");
-        productsPage.clickToCartButtonAndGo();
+        String productsName = "Sauce Labs Onesie";
+        productsPage.clickToAddButton(productsName);
+        productsPage.goToCartButton();
         Assert.assertTrue(myCartPage.checkoutButtonDisplayed());
     }
 }

@@ -6,7 +6,7 @@
     <test name="test on FireFox 1">
         <groups>
             <run>
-                <include name="Smoke" />
+                <include name="Smoke"/>
             </run>
         </groups>
     </test>

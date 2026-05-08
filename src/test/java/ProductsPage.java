@@ -46,7 +46,7 @@ public class ProductsPage extends  BasePage {
                 driver.findElement(By.xpath(String.format(ITEM_CONTAINER, productName)));
     }
 
-    public void clickToCartButtonAndGo(){
+    public void goToCartButton(){
         driver.findElement(MY_CART_BUTTON).click();
     }
 }

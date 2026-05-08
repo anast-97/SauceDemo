@@ -15,6 +15,7 @@ public class BaseTest {
     protected LoginPage loginPage;
     protected ProductsPage productsPage;
     protected MyCartPage myCartPage;
+    protected CheckoutPage checkoutPage;
 
     @BeforeMethod(alwaysRun = true)
     @Parameters({"browserName", "message"})
@@ -26,11 +27,13 @@ public class BaseTest {
                 this.driver = new ChromeDriver();
             }
         System.out.println(message);
+        System.out.println(System.getProperty("suiteName"));
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         this.loginPage = new LoginPage(driver);
         this.productsPage = new ProductsPage(driver);
         this.myCartPage = new MyCartPage(driver);
+        this.checkoutPage = new CheckoutPage(driver);
     }
 
     @AfterMethod(alwaysRun = true)

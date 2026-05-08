@@ -1,7 +1,5 @@
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class MyCartPage extends BasePage{
 
@@ -29,8 +27,15 @@ public class MyCartPage extends BasePage{
             }
         }
 
-        public void clickToContinueShoppingButton() {
-            driver.findElement(CONTINUE_SHOPPING_BUTTON).click();
+        public boolean continueShoppingButtonDisplayed() {
+            try {
+                WebElement element = driver.findElement(CONTINUE_SHOPPING_BUTTON);
+                wait.until(ExpectedConditions.elementToBeClickable(element));
+                return true;
+            } catch (NoSuchElementException e) {
+                return false;
+            }
+
         }
 
         public void clickToMenuButton() {

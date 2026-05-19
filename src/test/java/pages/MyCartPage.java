@@ -1,7 +1,10 @@
+package pages;
+
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import pages.BasePage;
 
-public class MyCartPage extends BasePage{
+public class MyCartPage extends BasePage {
 
     public MyCartPage(WebDriver driver) {
         super(driver);

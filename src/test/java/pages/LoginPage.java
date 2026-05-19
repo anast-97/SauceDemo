@@ -1,8 +1,10 @@
+package pages;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
+import pages.BasePage;
 
-public class LoginPage extends BasePage{
+public class LoginPage extends BasePage {
     protected final static By EMAIL_VALUE = By.cssSelector("#user-name");
     protected final static By PASSWORD_VALUER = By.cssSelector("#password");
     protected final static By LOGIN_BUTTON = By.cssSelector("#login-button");
@@ -19,15 +21,15 @@ public class LoginPage extends BasePage{
         driver.findElement(EMAIL_VALUE).sendKeys(email);
     }
 
-    public void setPasswordValue(String password){
+    public void setPasswordValue(String password) {
         driver.findElement(PASSWORD_VALUER).sendKeys(password);
     }
 
-    public void clickLoginButton(){
+    public void clickLoginButton() {
         driver.findElement(LOGIN_BUTTON).click();
     }
 
-    public void login(String email, String password){
+    public void login(String email, String password) {
         setEmailValue(email);
         setPasswordValue(password);
         clickLoginButton();

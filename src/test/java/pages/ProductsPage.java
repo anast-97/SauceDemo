@@ -1,11 +1,13 @@
+package pages;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import pages.BasePage;
 
-public class ProductsPage extends  BasePage {
+public class ProductsPage extends BasePage {
     protected final static By ADD_BUTTON = By.cssSelector(".btn.btn_inventory");
     protected final static By ITEM_PRICE = By.cssSelector(".inventory_item_price");
     protected final static By PRODUCT_DESCRIPTION = By.cssSelector(".inventory_item_desc");

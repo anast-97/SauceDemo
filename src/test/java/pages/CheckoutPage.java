@@ -1,8 +1,11 @@
+package pages;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import pages.BasePage;
 
-public class CheckoutPage extends BasePage{
+public class CheckoutPage extends BasePage {
 
         protected final static By CONTINUE_BUTTON = By.cssSelector("#continue");
 

@@ -1,6 +1,4 @@
 package tests;
-
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -15,7 +13,7 @@ public class ProductsPageTests extends BaseTest{
         Assert.assertEquals(productsPage.getProductDescription(productName), "Get your testing superhero on with the Sauce Labs bolt T-shirt. From American Apparel, 100% ringspun combed cotton, heather gray with red bolt.");
     }
 
-    @Test
+    @Test(groups = "Regression")
     public void addToCartTest(){
         loginPage.openLoginPage();
         loginPage.login("standard_user", "secret_sauce");

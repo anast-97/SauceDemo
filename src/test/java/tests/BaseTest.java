@@ -18,24 +18,31 @@ import java.time.Duration;
 public class BaseTest {
 
     protected WebDriver driver;
-   protected LoginPage loginPage;
+    protected LoginPage loginPage;
     protected ProductsPage productsPage;
     protected MyCartPage myCartPage;
     protected CheckoutPage checkoutPage;
 
     @BeforeMethod(alwaysRun = true)
     @Parameters({"browserName", "message"})
-    public void setUp(@Optional("fireFox") String browserName, @Optional("No message") String message) {
-        if (browserName.equals("fireFox")) {
+    public void setUp(@Optional("firefox") String browserName, @Optional("No message") String message) {
+        String browser = browserName.toLowerCase();
+
+        System.out.println("Browser parameter: " + browserName);
+        System.out.println("Normalized: " + browser);
+        System.out.println("Message: " + message);
+
+        if (browser.equals("firefox")) {
             this.driver = new FirefoxDriver();
-        } else
-            if (browserName.equals("chrome")){
-                this.driver = new ChromeDriver();
-            }
-        System.out.println(message);
-        System.out.println(System.getProperty("suiteName"));
+        } else if (browser.equals("chrome")) {
+            this.driver = new ChromeDriver();
+        } else {
+            throw new IllegalArgumentException("Unknown browser: " + browserName);
+        }
+
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+
         this.productsPage = new ProductsPage(driver);
         this.myCartPage = new MyCartPage(driver);
         this.checkoutPage = new CheckoutPage(driver);
@@ -43,7 +50,9 @@ public class BaseTest {
     }
 
     @AfterMethod(alwaysRun = true)
-    public void tearDown(){
-        this.driver.quit();
+    public void tearDown() {
+        if (this.driver != null) {  // Важно добавить проверку!
+            this.driver.quit();
+        }
     }
 }
